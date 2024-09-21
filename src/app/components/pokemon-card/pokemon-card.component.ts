@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pokemon } from '../../interfaces/pokemon.interface';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon-card.component.scss'
 })
 export class PokemonCardComponent {
-
+  @Input() poke: Pokemon = {} as Pokemon;
+  @Input() shiny: boolean = false;
+  @Input() pixel: boolean = false;
 }
