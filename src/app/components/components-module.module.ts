@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { AngularMaterialModule } from '../angular-material.module';
 import { BodyComponent } from './body/body.component';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { PipeModuleModule } from '../pipes/pipe-module.module';
 
 
 
@@ -16,10 +17,12 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
   imports: [
     CommonModule,
     AngularMaterialModule,
+    PipeModuleModule,
   ],
   exports: [
     HeaderComponent,
     BodyComponent,
+    PokemonCardComponent,
   ]
 })
 
