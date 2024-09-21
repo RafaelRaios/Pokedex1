@@ -1,3 +1,3 @@
-import { Pokemon } from "../interfaces/pokemon/pokemon.interface";
+import { Pokemon } from "../interfaces/pokemon.interface";
 
 export type Pokemons = Pokemon[];

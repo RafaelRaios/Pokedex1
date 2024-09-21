@@ -1,6 +1,12 @@
 <div class="bg-gray-500 w-full h-full flex flex-col">
 
-    <div class="h-screen" ng>
-        <p *ngFor="let poke of pokeList">{{ poke.url }}</p>
+    <div class="h-screen " *ngFor="let poke of pokemonList">
+        <p><strong>Name:</strong> {{ poke.name }}</p>
+        <p><strong>Height:</strong> {{ poke.height }}</p>
+        <p><strong>Weight:</strong> {{ poke.weight }}</p>
+        <img [src]="poke.sprites.other.showdown.front_default" alt="{{ poke.name }}">
+        <div class="flex space-x-2"><strong>Types: </strong> 
+            <p *ngFor="let tipo of poke.types"> {{ tipo.type.name }}</p>
+        </div>
     </div>   
 </div>
