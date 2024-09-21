@@ -1,13 +1,14 @@
-<div class="flex bg-slate-400 items-center rounded-md pr-2 pl-2 card">
-    <div class="flex flex-col scale-75">
+<div class="flex bg-slate-400 items-center rounded-md  card m-4">
+    <div class="flex flex-col scale-75 card__item">
         <p><strong>Name:</strong> {{ poke.name | capitalizePipe }}</p>
         <p><strong>Height:</strong> {{ poke.height | feetToMeter }}m</p>
         <p><strong>Weight:</strong> {{ poke.weight  | toKg }}kg</p>
         <div class="flex space-x-2"><strong>Types: </strong> 
-            <p *ngFor="let tipo of poke.types"> {{ tipo.type.name }}</p>
+            <p *ngFor="let tipo of poke.types" class="tipo text-white" [attr.color]="tipo.type.name"> {{ tipo.type.name }}</p>
         </div>
     </div>
-    <div class="">
-        <img [src]="poke.sprites.other.showdown.front_default" alt="{{ poke.name }}" >
+    <div class="card__item">
+        <img [src]="poke.sprites.other.showdown.front_default" alt="{{ poke.name }}" 
+        class="image" >
     </div>
 </div>

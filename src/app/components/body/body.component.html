@@ -1,6 +1,6 @@
-<div class="bg-gray-500 w-full h-full grid grid-cols-5" >
-
-    <div class="m-4" *ngFor="let poke of pokemonList">
+<div class="bg-gray-500 w-full h-full flex flex-col md:grid md:grid-cols-4 item-center" >
+    <img src="../../../assets/images/pokeball-background.png" alt="pokeball" class="fixed w-screen/50 h-full isent z-0">
+    <div class="justify-between z-50" *ngFor="let poke of pokemonList">
         <app-pokemon-card
         [poke]="poke"></app-pokemon-card>
     </div>   

@@ -1,7 +1,95 @@
+$opacidade: 0.7;
+
 .card {
-    
+    width: 80%;
+    height: 70%;
+
+    &__item{
+        width: 50%;
+    }
+}
+.image {
+    margin-left: 25%;
+    max-width: 70%;
+    max-height: 50%;
 }
 
 .tipo {
-    
+    padding: 6px;
+    border-radius: 10px;
+    border: white solid 0.5px;
+
+    &[color="grass"] {
+        background-color: #7EB95B;
+        opacity: $opacidade;
+    }
+    &[color="fire"] {
+        background-color: #FC0C0B;
+        opacity: $opacidade;
+    }
+    &[color="water"] {
+        background-color: #5BA6D2;
+        opacity: $opacidade;
+    }
+    &[color="normal"] {
+        background-color: #DDDBC6;
+        opacity: $opacidade;
+    }
+    &[color="flying"] {
+        background-color: #93D0CB;
+        opacity: $opacidade;
+    }
+    &[color="bug"] {
+        background-color: #BDDD6E;
+        opacity: $opacidade;
+    }
+    &[color="poison"] {
+        background-color: #C565E4;
+        opacity: $opacidade;
+    }
+    &[color="electric"] {
+        background-color: #FFFA24;
+        opacity: $opacidade;
+        color: #7B8E8A;
+    }
+    &[color="Ground"] {
+        background-color: #E1D158;
+        opacity: $opacidade;
+    }
+    &[color="fighting"] {
+        background-color: #E81319;
+        opacity: $opacidade;
+    }
+    &[color="psychic"] {
+        background-color:  #F55792;
+        opacity: $opacidade;
+    }
+    &[color="rock"] {
+        background-color: #94834F;
+        opacity: $opacidade;
+    }
+    &[color="ice"] {
+        background-color: #65B8C0;
+        opacity: $opacidade;
+    }
+    &[color="ghost"] {
+        background-color: #B38DC2;
+        opacity: $opacidade;
+    }
+    &[color="dragon"] {
+        background-color: #B18DFD;
+        opacity: &$opacidade;
+    }
+    &[color="dark"] {
+        background-color: #5F4632;
+        opacity: &$opacidade;
+    }
+    &[color="steel"] {
+        background-color: #7B8E8A;
+        opacity: &$opacidade;
+    }
+    &[color="fairy"] {
+        background-color: #FDD1E0;
+        opacity: &$opacidade;
+    }
 }
