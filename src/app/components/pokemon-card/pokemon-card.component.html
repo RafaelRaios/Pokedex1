@@ -4,11 +4,18 @@
         <p><strong>Height:</strong> {{ poke.height | feetToMeter }}m</p>
         <p><strong>Weight:</strong> {{ poke.weight  | toKg }}kg</p>
         <div class="flex space-x-2"><strong>Types: </strong> 
-            <p *ngFor="let tipo of poke.types" class="tipo text-white" [attr.color]="tipo.type.name"> {{ tipo.type.name }}</p>
+            <p *ngFor="let tipo of poke.types" class="tipo text-white" 
+            [attr.color]="tipo.type.name"> {{ tipo.type.name }}</p>
         </div>
     </div>
-    <div class="card__item">
+    <div class="card__item z-40 hover:cursor-pointer" (click)="goShiny()">
         <img [src]="poke.sprites.other.showdown.front_default" alt="{{ poke.name }}" 
-        class="image" >
+        class="image" *ngIf="!shiny && !pixel">
+        <img [src]="poke.sprites.other.showdown.front_shiny" alt="{{ poke.name }}" 
+        class="image" *ngIf="shiny && !pixel">
+        <img [src]="poke.sprites.front_default" alt="{{ poke.name }}" 
+        class="" *ngIf="!shiny && pixel">
+        <img [src]="poke.sprites.front_shiny" alt="{{ poke.name }}" 
+        class="" *ngIf="shiny && pixel">
     </div>
 </div>

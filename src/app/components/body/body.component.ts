@@ -16,6 +16,8 @@ export class BodyComponent {
   private limit: number = 100; // Quantidade de Pokémon a serem carregados por vez
   private totalPokemon: number = 1118; // Total de Pokémon que queremos carregar
 
+  pixel: boolean = true;
+
   pokemonList: Pokemons = []; // Lista de Pokémon que será atualizada
   isLoading: boolean = false; // Indicador de carregamento
 
@@ -41,7 +43,9 @@ export class BodyComponent {
         this.offset += this.limit; // Atualiza o offset para pegar os próximos Pokémon
       });
   }
-
+  goPixel() {
+    this.pixel = !this.pixel;
+  }
   // Função que carrega os detalhes dos Pokémon e adiciona na lista
   private getPokemon(list: pokeListResponse) {
     const arr: Observable<Pokemon>[] = [];
