@@ -9,7 +9,7 @@ import { Pokemon } from '../../interfaces/pokemon.interface';
 export class PokemonCardComponent implements OnChanges {
   @Input() poke: Pokemon = {} as Pokemon;
   @Input() shiny: boolean = false;
-  @Input() pixel: boolean = false;
+  @Input() pixel: boolean = true;
 
 
   // Detecta mudanças nos inputs shiny e pixel
@@ -27,5 +27,9 @@ export class PokemonCardComponent implements OnChanges {
 
   goShiny() {
     this.shiny = !this.shiny;
+  }
+
+  goPixel() {
+    this.pixel = !this.pixel;
   }
 }

@@ -5,6 +5,7 @@ import { pokeListResponse } from '../../types/poke-list-response';
 import { Pokemons } from '../../types/pokemons';
 import { forkJoin, interval, Observable } from 'rxjs';
 import { switchMap, takeWhile } from 'rxjs/operators';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-body',
@@ -17,6 +18,7 @@ export class BodyComponent {
   private totalPokemon: number = 1118; // Total de Pokémon que queremos carregar
 
   pixel: boolean = true;
+  shiny: boolean = false;
 
   pokemonList: Pokemons = []; // Lista de Pokémon que será atualizada
   isLoading: boolean = false; // Indicador de carregamento
@@ -43,8 +45,16 @@ export class BodyComponent {
         this.offset += this.limit; // Atualiza o offset para pegar os próximos Pokémon
       });
   }
+
+  goShiny() {
+    this.shiny = !this.shiny;
+  }
   goPixel() {
     this.pixel = !this.pixel;
+  }
+
+  onShinyChange(event: MatSlideToggleChange) {
+    this.goShiny();
   }
   // Função que carrega os detalhes dos Pokémon e adiciona na lista
   private getPokemon(list: pokeListResponse) {
