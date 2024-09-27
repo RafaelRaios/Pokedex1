@@ -5,6 +5,7 @@ import { AngularMaterialModule } from '../angular-material.module';
 import { BodyComponent } from './body/body.component';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PipeModuleModule } from '../pipes/pipe-module.module';
+import { PokemonDetailedComponent } from './pokemon-detailed/pokemon-detailed.component';
 
 
 
@@ -13,6 +14,7 @@ import { PipeModuleModule } from '../pipes/pipe-module.module';
     HeaderComponent,
     BodyComponent,
     PokemonCardComponent,
+    PokemonDetailedComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { PipeModuleModule } from '../pipes/pipe-module.module';
     HeaderComponent,
     BodyComponent,
     PokemonCardComponent,
+    PokemonDetailedComponent,
   ]
 })
 

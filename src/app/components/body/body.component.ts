@@ -44,7 +44,7 @@ export class BodyComponent {
 
   // Função que inicia a chamada periódica para carregar Pokémon
   loadPokemon() {
-    interval(10) // A cada 2 segundos
+    interval(100) // A cada 2 segundos
       .pipe(
         takeWhile(() => this.pokemonList.length < this.totalPokemon), // Continua enquanto não tiver carregado os 1118 Pokémon
         switchMap(() => this.pokemonservice.getPokemonList(this.limit, this.offset)) // Faz a requisição para obter a lista
