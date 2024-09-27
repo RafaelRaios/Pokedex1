@@ -1,9 +1,12 @@
-<div>
+<div class="bg-gray-500 h-full w-full">
   <div>
-    <app-header></app-header>
+    <app-header (SearchPokemon)="onSearch($event)"></app-header>
   </div>
-  <div>
-    <app-body></app-body>
+  <div >
+    <app-body 
+    [filterCriteria]="filterCriteria"
+    (onPokemonSelected)="onSelectedPokemon($event)"
+    ></app-body>
   </div>
 
 </div>

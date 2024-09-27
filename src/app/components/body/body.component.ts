@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PokemonServiceService } from '../../services/pokemon-service.service';
 import { Pokemon } from '../../interfaces/pokemon.interface';
 import { pokeListResponse } from '../../types/poke-list-response';
@@ -21,7 +21,12 @@ export class BodyComponent {
   shiny: boolean = false;
 
   pokemonList: Pokemons = []; // Lista de Pokémon que será atualizada
+  filteredPokemonList: Pokemons = [];
   isLoading: boolean = false; // Indicador de carregamento
+
+  @Input() filterCriteria:string = "";
+
+  @Output('onPokemonSelected') onPokemonSelectedEmmit = new EventEmitter<Pokemon>();
 
   constructor (
     private readonly pokemonservice: PokemonServiceService,
@@ -32,9 +37,14 @@ export class BodyComponent {
     this.loadPokemon();
   }
 
+  ngOnChanges() {
+    const searchTerm = this.filterCriteria.toLocaleLowerCase()
+    this.filteredPokemonList = this.pokemonList.filter(poke => poke.name.includes(searchTerm));
+  }
+
   // Função que inicia a chamada periódica para carregar Pokémon
   loadPokemon() {
-    interval(2000) // A cada 2 segundos
+    interval(10) // A cada 2 segundos
       .pipe(
         takeWhile(() => this.pokemonList.length < this.totalPokemon), // Continua enquanto não tiver carregado os 1118 Pokémon
         switchMap(() => this.pokemonservice.getPokemonList(this.limit, this.offset)) // Faz a requisição para obter a lista
@@ -43,6 +53,7 @@ export class BodyComponent {
         const pokeList: pokeListResponse = data.results; // Obtemos os resultados da lista
         this.getPokemon(pokeList); // Carregamos os detalhes dos Pokémon da lista
         this.offset += this.limit; // Atualiza o offset para pegar os próximos Pokémon
+        this.filteredPokemonList = this.pokemonList;
       });
   }
 
@@ -55,6 +66,15 @@ export class BodyComponent {
 
   onShinyChange(event: MatSlideToggleChange) {
     this.goShiny();
+  }
+
+  onPixelChange(event: MatSlideToggleChange) {
+    this.goPixel();
+  }
+
+  onUserSelected(i: number) {
+    //console.log(this.pokemonList[i].name);
+    this.onPokemonSelectedEmmit.emit(this.pokemonList[i]);
   }
   // Função que carrega os detalhes dos Pokémon e adiciona na lista
   private getPokemon(list: pokeListResponse) {

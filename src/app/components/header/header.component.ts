@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PokemonServiceService } from '../../services/pokemon-service.service';
 
 @Component({
@@ -7,4 +7,11 @@ import { PokemonServiceService } from '../../services/pokemon-service.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  inputValue: string = "";
+
+  @Output('SearchPokemon') searchPokemonEmmiter = new EventEmitter<string>();
+
+  updateSearch() {
+    this.searchPokemonEmmiter.emit(this.inputValue);
+  }
 }
