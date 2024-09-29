@@ -24,7 +24,8 @@ export class BodyComponent {
   filteredPokemonList: Pokemons = [];
   isLoading: boolean = false; // Indicador de carregamento
 
-  @Input() filterCriteria:string = "";
+  @Input() filterCriteria: string = "";
+  @Input() typeOne: string = "";
 
   @Output('onPokemonSelected') onPokemonSelectedEmmit = new EventEmitter<Pokemon>();
 
@@ -40,6 +41,7 @@ export class BodyComponent {
   ngOnChanges() {
     const searchTerm = this.filterCriteria.toLocaleLowerCase()
     this.filteredPokemonList = this.pokemonList.filter(poke => poke.name.includes(searchTerm));
+    this.filteredPokemonList = this.filteredPokemonList.filter(poke => poke.types[0].type.name.includes(this.typeOne));
   }
 
   // Função que inicia a chamada periódica para carregar Pokémon
@@ -72,7 +74,7 @@ export class BodyComponent {
     this.goPixel();
   }
 
-  onUserSelected(i: number) {
+  onPokemonSelected(i: number) {
     //console.log(this.pokemonList[i].name);
     this.onPokemonSelectedEmmit.emit(this.pokemonList[i]);
   }

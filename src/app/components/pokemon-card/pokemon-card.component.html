@@ -1,7 +1,7 @@
 <div class="flex bg-slate-400 items-center rounded-md  card m-4">
     <div class="flex flex-col scale-75 card__item">
         <p><strong>Name:</strong> {{ poke.name | capitalizePipe }}</p>
-        <p><strong>Height:</strong> {{ poke.height | feetToMeter }}m</p>
+        <p><strong>Height:</strong> {{ poke.height | decimeterToMeter}}m</p>
         <p><strong>Weight:</strong> {{ poke.weight  | toKg }}kg</p>
         <div class="flex space-x-2"><strong>Types: </strong> 
             <p *ngFor="let tipo of poke.types" class="tipo text-white" 

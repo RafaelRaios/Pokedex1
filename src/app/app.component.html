@@ -1,11 +1,12 @@
 <div class="bg-gray-500 h-full w-full">
   <div>
-    <app-header (SearchPokemon)="onSearch($event)"></app-header>
+    <app-header (SearchPokemon)="onSearch($event)" (typeOne)="onSelectedTypeOne($event)"></app-header>
   </div>
   <div >
     <app-body 
     [filterCriteria]="filterCriteria"
-    (onPokemonSelected)="onSelectedPokemon($event)"
+    [typeOne]="typeOne"
+    (onPokemonSelected)="openPokemonDetails($event)"
     ></app-body>
   </div>
 

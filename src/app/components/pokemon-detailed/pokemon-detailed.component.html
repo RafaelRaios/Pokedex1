@@ -1,1 +1,9 @@
-<p>pokemon-detailed works!</p>
+<div class="flex flex-col p-5 items-center">
+    <div class="p-3">
+        <h1><strong>Name: </strong> {{ data.pokemon.name }}</h1>
+    </div>
+    <div class="flex items-center">
+        <img [src]="data.pokemon.sprites.front_default" alt="front">
+        <img [src]="data.pokemon.sprites.back_default" alt="back">
+    </div>
+</div>

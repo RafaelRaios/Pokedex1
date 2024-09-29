@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CapitalizePipePipe } from './capitalize-pipe.pipe';
-import { FeetToMeterPipe } from './feet-to-meter.pipe';
 import { ToKgPipe } from './to-kg.pipe';
+import { DecimeterToMeterPipe } from './decimeter-to-meter.pipe';
 
 
 
 @NgModule({
   declarations: [
     CapitalizePipePipe,
-    FeetToMeterPipe,
     ToKgPipe,
+    DecimeterToMeterPipe,
   ],
   imports: [
     CommonModule
   ],
   exports: [
     CapitalizePipePipe,
-    FeetToMeterPipe,
     ToKgPipe,
+    DecimeterToMeterPipe,
   ],
 })
 export class PipeModuleModule { }

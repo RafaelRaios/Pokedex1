@@ -1,14 +1,15 @@
 <div class="w-full fixed p-4 bg-gradient-to-b from-red-700  to-orange-700/80 to-90% text-3xl font-bold flex items-center justify-between z-50">
     <div>
-        <h1 class="m-0 text-white hidden md:flex">Pokedex</h1>
+        <h1 class="m-0 text-2xl text-white hidden md:flex">Pokedex</h1>
     </div>
     <div class="m-0">     
         <div class="search-container">
-            <mat-form-field  class="w-full relative md:w-96">
-              <mat-icon matPrefix class="search-icon"></mat-icon>
-              <input matInput [(ngModel)]="inputValue" (input)="updateSearch()" placeholder="Search:"/>
-            </mat-form-field>
+              <input matInput [(ngModel)]="inputValue" (input)="updateSearch()" placeholder="Search:" 
+              class="bg-slate-500/50 p-3  rounded-lg border-sky-200/10"/>        
         </div>
     </div>
-    <div></div>
+    <div class=" hidden">
+        
+            
+    </div>
 </div>

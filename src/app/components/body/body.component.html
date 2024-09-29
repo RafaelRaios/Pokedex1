@@ -18,7 +18,7 @@
             </div>
             
         </div>
-        <div class="justify-between z-40 mt-10" *ngFor="let poke of filteredPokemonList; let i = index" (click)="onUserSelected(i)">
+        <div class="justify-between z-40 mt-10" *ngFor="let poke of filteredPokemonList; let i = index" (click)="onPokemonSelected(i)">
             <app-pokemon-card
             [poke]="poke"
             [shiny]="shiny"
