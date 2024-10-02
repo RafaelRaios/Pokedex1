@@ -8,7 +8,7 @@
             [attr.color]="tipo.type.name"> {{ tipo.type.name }}</p>
         </div>
     </div>
-    <div class="card__item z-40 hover:cursor-pointer" (click)="goPixel()">
+    <div class="card__item z-40 hover:cursor-pointer" >
         <img [src]="poke.sprites.other.showdown.front_default" alt="{{ poke.name }}" 
         class="image" *ngIf="!shiny && !pixel">
         <img [src]="poke.sprites.other.showdown.front_shiny" alt="{{ poke.name }}" 

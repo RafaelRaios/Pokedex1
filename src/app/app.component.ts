@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Pokemon } from './interfaces/pokemon.interface';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';  // Substitua MatDialog por MatBottomSheet
 import { PokemonDetailedComponent } from './components/pokemon-detailed/pokemon-detailed.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,20 +16,21 @@ export class AppComponent {
   typeOne: string = "";
 
   constructor(
-    private readonly _matDialog: MatDialog
+    private readonly _matBottomSheet: MatBottomSheet  // Substitua _matDialog por _matBottomSheet
   ) {}
 
   openPokemonDetails(poke: Pokemon) {
     this.onSelectedPokemon(poke);
 
-    const dialogRef = this._matDialog.open(PokemonDetailedComponent, {
+    const bottomSheetRef = this._matBottomSheet.open(PokemonDetailedComponent, { // Abra o MatBottomSheet
       data: {
         pokemon: this.selectedPokemon,
       }
+    });
 
-    })
-
-    dialogRef.afterClosed();
+    bottomSheetRef.afterDismissed().subscribe(() => {
+      console.log('Bottom sheet closed');
+    });
   }
 
   onSearch(search: string) {
@@ -42,6 +44,5 @@ export class AppComponent {
 
   onSelectedTypeOne(tipo: string) {
     this.typeOne = tipo;
-
   }
 }

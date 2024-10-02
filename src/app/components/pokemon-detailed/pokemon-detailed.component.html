@@ -1,9 +1,31 @@
-<div class="flex flex-col p-5 items-center">
-    <div class="p-3">
-        <h1><strong>Name: </strong> {{ data.pokemon.name }}</h1>
+
+    <div class="flex flex-col p-5 items-center  text-black z-40 h-full">
+      <div class="p-3">
+        <h1><strong>Name: </strong> {{ poke.name }}</h1>
+      </div>
+      <div class="flex items-center scale-150 p-10">
+        <img [src]="poke.sprites.front_default" alt="front">
+        <img [src]="poke.sprites.back_default" alt="back">
+      </div>
+      <div class="flex space-x-3">
+        <h2 *ngFor="let tipo of poke.types" class="tipo w-20 text-center text-white" [attr.color]="tipo.type.name">
+          {{ tipo.type.name }}
+        </h2>
+      </div>
+      <div class="flex flex-row">
+        <h1>Abilities: </h1>
+        <h2 *ngFor="let ab of poke.abilities">{{ ab.ability.name }}</h2>
+      </div>
+      <div class="flex flex-col">
+        <h1>Base Stats: </h1>
+        <div *ngFor="let stat of poke.stats" class="flex flex-row items-center space-x-3">
+          <p>{{ stat.stat.name }}: </p>
+          <div class="bg-emerald-600 rounded-sm p-2 m-0 mb-3" 
+               [ngStyle]="{'width': (stat.base_stat) + 'px'}">
+          </div>
+          <p>{{ stat.base_stat }}</p>
+        </div>
+      </div>
     </div>
-    <div class="flex items-center">
-        <img [src]="data.pokemon.sprites.front_default" alt="front">
-        <img [src]="data.pokemon.sprites.back_default" alt="back">
-    </div>
-</div>
+
+  

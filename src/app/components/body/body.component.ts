@@ -76,7 +76,7 @@ export class BodyComponent {
 
   onPokemonSelected(i: number) {
     //console.log(this.pokemonList[i].name);
-    this.onPokemonSelectedEmmit.emit(this.pokemonList[i]);
+    this.onPokemonSelectedEmmit.emit(this.filteredPokemonList[i]);
   }
   // Função que carrega os detalhes dos Pokémon e adiciona na lista
   private getPokemon(list: pokeListResponse) {
