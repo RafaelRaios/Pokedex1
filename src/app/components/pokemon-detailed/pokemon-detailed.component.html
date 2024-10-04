@@ -1,7 +1,7 @@
 
     <div class="flex flex-col p-5 items-center bg-gray-500  text-white z-40 h-screen rounded-md">
       <div class="p-3">
-        <h1><strong>Name: </strong> {{ poke.name }}</h1>
+        <h1><strong>Name: </strong> {{ poke.name | capitalizePipe }}</h1>
       </div>
       <div class="flex items-center scale-150 p-10">
         <img [src]="poke.sprites.front_default" alt="front">
@@ -16,10 +16,14 @@
         <h2><strong>Abilities: </strong></h2>
         <h2 *ngFor="let ab of poke.abilities">{{ ab.ability.name }}{{ ab.is_hidden | isHidden}}</h2>
       </div>
+      <div class="flex flex-row space-x-2">
+        <h3><strong>Height:</strong> {{ poke.height | decimeterToMeter}}m</h3>
+        <h3><strong>Weight:</strong> {{ poke.weight  | toKg }}kg</h3>
+      </div>
       <div class="flex flex-col">
         <h1>Base Stats: </h1>
         <div *ngFor="let stat of poke.stats" class="flex flex-row items-center space-x-3">
-          <p>{{ stat.stat.name }}: </p>
+          <p><strong>{{ stat.stat.name }}: </strong></p>
           <div class="bg-emerald-600 rounded-sm p-2 m-0 mb-3" 
                [ngStyle]="{'width': (stat.base_stat) + 'px'}">
           </div>

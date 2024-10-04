@@ -1,3 +1,7 @@
 ::ng-deep .mat-bottom-sheet-container {
     background-color: red !important;
+    :focus {
+        outline: none !important; 
+        box-shadow: none; 
+    }
 }
