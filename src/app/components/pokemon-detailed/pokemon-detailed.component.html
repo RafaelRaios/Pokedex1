@@ -1,5 +1,5 @@
 
-    <div class="flex flex-col p-5 items-center  text-black z-40 h-full">
+    <div class="flex flex-col p-5 items-center bg-gray-500  text-white z-40 h-screen rounded-md">
       <div class="p-3">
         <h1><strong>Name: </strong> {{ poke.name }}</h1>
       </div>
@@ -12,9 +12,9 @@
           {{ tipo.type.name }}
         </h2>
       </div>
-      <div class="flex flex-row">
-        <h1>Abilities: </h1>
-        <h2 *ngFor="let ab of poke.abilities">{{ ab.ability.name }}</h2>
+      <div class="flex flex-row space-x-1">
+        <h2><strong>Abilities: </strong></h2>
+        <h2 *ngFor="let ab of poke.abilities">{{ ab.ability.name }}{{ ab.is_hidden | isHidden}}</h2>
       </div>
       <div class="flex flex-col">
         <h1>Base Stats: </h1>

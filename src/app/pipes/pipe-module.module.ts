@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CapitalizePipePipe } from './capitalize-pipe.pipe';
 import { ToKgPipe } from './to-kg.pipe';
 import { DecimeterToMeterPipe } from './decimeter-to-meter.pipe';
+import { IsHiddenPipe } from './is-hidden.pipe';
 
 
 
@@ -11,6 +12,7 @@ import { DecimeterToMeterPipe } from './decimeter-to-meter.pipe';
     CapitalizePipePipe,
     ToKgPipe,
     DecimeterToMeterPipe,
+    IsHiddenPipe,
   ],
   imports: [
     CommonModule
@@ -19,6 +21,7 @@ import { DecimeterToMeterPipe } from './decimeter-to-meter.pipe';
     CapitalizePipePipe,
     ToKgPipe,
     DecimeterToMeterPipe,
+    IsHiddenPipe,
   ],
 })
 export class PipeModuleModule { }
